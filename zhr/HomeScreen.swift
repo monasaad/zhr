@@ -1,7 +1,7 @@
 import SwiftUI
 import MapKit
 
-struct ContentView: View {
+struct HomeScreen: View {
     @State private var position: MapCameraPosition = .userLocation(fallback: .camera(MapCamera(centerCoordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0), distance: 1000)))
     @StateObject private var locationManager = LocationManager() // For managing location updates
 
@@ -98,5 +98,5 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 
 #Preview {
-    ContentView()
+    HomeScreen()
 }

@@ -1,7 +1,90 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-
+    "Activity" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الأنشطة"
+          }
+        }
+      }
+    },
+    "Based on Apple Watch" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تبعاً لاستشعارات الساعة"
+          }
+        }
+      }
+    },
+    "Current Location" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "موقعك الحالي"
+          }
+        }
+      }
+    },
+    "Daily Activity" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "النشاط اليومي"
+          }
+        }
+      }
+    },
+    "Health" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الصحة"
+          }
+        }
+      }
+    },
+    "Hello, World!" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مرحبا العالم! 😂"
+          }
+        }
+      }
+    },
+    "Location" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الموقع"
+          }
+        }
+      }
+    },
+    "Reminder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "التنبيهات"
+          }
+        }
+      }
+    }
   },
   "version" : "1.0"
 }
