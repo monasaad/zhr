@@ -9,7 +9,30 @@ import SwiftUI
 
 struct MainTabView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            HomeScreen()
+                .tabItem {
+                    Image(systemName: "location.fill")
+                    Text("Location")
+                }
+
+            HealthScreen()
+                .tabItem {
+                    Image(systemName: "heart.fill")
+                    Text("Health")
+                }
+
+            ReminderScreen()
+                .tabItem {
+                    Image(systemName: "calendar")
+                    Text("Reminder")
+                }
+            ActivityScreen()
+                .tabItem {
+                    Image(systemName: "dice.fill")
+                    Text("Activity")
+                }
+        }
     }
 }
 
