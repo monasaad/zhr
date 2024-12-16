@@ -11,7 +11,7 @@ import SwiftUI
 struct zhrApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeScreen()
+            MainTabView()
         }
     }
 }
