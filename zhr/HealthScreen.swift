@@ -30,15 +30,18 @@ struct HealthScreen: View {
             Text("Based on Apple Watch")
                 .font(.headline)
                 .foregroundColor(.gray)
-            
+
             // Use LazyVGrid for two columns
             LazyVGrid(columns: columns, spacing: 20) {
 
                 // Display Steps
-                healthDataView(title: "Steps", value: String(format: "%.1f km", totalSteps), icon: "figure.walk", color: .green)
-                healthDataView(title: "Heart Rate", value: String(format: "%.1f bpm", averageHeartRate), icon: "heart", color: .red)
-                healthDataView(title: "Sleep", value: String(format: "%.1f hours", totalSleep), icon: "bed.double", color: .purple)
-                healthDataView(title: "Respiratory Rate", value: String(format: "%.1f %%", averageOxygen), icon: "lungs", color: .blue)
+                healthDataView(title: NSLocalizedString("Steps", comment: ""), value: String(format: NSLocalizedString("%.1f km", comment: ""), totalSteps), icon: "figure.walk", color: .green)
+
+                healthDataView(title: NSLocalizedString("Heart Rate", comment: ""), value: String(format: NSLocalizedString("%.1f bpm", comment: ""), averageHeartRate), icon: "heart", color: .red)
+
+                healthDataView(title: NSLocalizedString("Sleep", comment: ""), value: String(format: NSLocalizedString("%.1f hours", comment: ""), totalSleep), icon: "bed.double", color: .purple)
+
+                healthDataView(title: NSLocalizedString("Respiratory Rate", comment: ""), value: String(format: NSLocalizedString("%.1f %%", comment: ""), averageOxygen), icon: "lungs", color: .blue)
             }
             Spacer()
         }
@@ -206,4 +209,3 @@ struct HealthScreen: View {
     HealthScreen()
 }
 */
-
