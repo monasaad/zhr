@@ -36,6 +36,7 @@ struct HealthScreen: View {
 
                 // Display Steps
                 healthDataView(title: NSLocalizedString("Steps", comment: ""), value: String(format: NSLocalizedString("%.1f km", comment: ""), totalSteps), icon: "figure.walk", color: .green)
+                //                healthDataView(title: "Steps", value: String(format: "%.1f km", totalSteps), icon: "figure.walk", color: .green)
 
                 healthDataView(title: NSLocalizedString("Heart Rate", comment: ""), value: String(format: NSLocalizedString("%.1f bpm", comment: ""), averageHeartRate), icon: "heart", color: .red)
 
