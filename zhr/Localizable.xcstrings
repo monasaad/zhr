@@ -274,6 +274,17 @@
           }
         }
       }
+    },
+    "We use your location to display relevant map information and provide location-based services." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نحن نستخدم موقعك لعرض معلومات الخريطة ذات الصلة وتوفير الخدمات القائمة على الموقع."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

@@ -819,7 +819,7 @@
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "DO YOU AGREE?";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to display relevant map information and provide location-based services.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -857,7 +857,7 @@
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "DO YOU AGREE?";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to display relevant map information and provide location-based services.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
