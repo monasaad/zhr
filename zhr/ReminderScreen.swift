@@ -61,9 +61,11 @@ struct ReminderScreen: View {
                                     Text(dayNumber(from: day))
                                         .font(.title2)
                                         .bold()
-                                        .foregroundColor(isSelected(day) ? .white : .primary)
+                                        .foregroundColor(isSelected(day) ? (Color("PurpleDark")) : Color.primary)
+                                       // .foregroundColor(isSelected(day) ? .white : .primary)
                                         .frame(width: 60, height: 60)
-                                        .background(isSelected(day) ? Color("PurpleDark") : Color.clear)
+                                        .background(isSelected(day) ? Color("PurpleDark").opacity(0.2) : Color.clear)
+                                       // .background(isSelected(day) ? Color("PurpleDark") : Color.clear)
                                         .clipShape(RoundedRectangle(cornerRadius: 15))
                                 }
                                 .id(day) // تعيين معرف لكل يوم
@@ -87,21 +89,33 @@ struct ReminderScreen: View {
                             VStack(alignment: .leading) {
                                 Text(reminder.title)
                                     .font(.headline)
+                                    .foregroundColor(.primary)
+                                
                                 Text("\(reminder.location)")
                                     .font(.subheadline)
+                                    .foregroundColor(.gray)
+                                
                                 Text("\(formattedTime(reminder.date))")
                                     .font(.footnote)
                                     .padding(.leading, 260)
-                                
+                                    .foregroundColor(Color("PurpleDark"))
+
                             }
-                            .background(Color("PurpleLight"))
-                            .cornerRadius(10)
+                            .padding() // إضافة مساحة داخلية لكل عنصر
+                                        .background(Color("PurpleLight")) // لون خلفية العنصر
+                                        .cornerRadius(15) // لتنعيم الحواف
+                                        .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 2) // إضافة ظل خفيف
+                                        .listRowBackground(Color.clear)
                         }
+                        
                     } else {
                         Text("No reminders for this day")
                             .foregroundColor(.gray)
                     }
+                    
                 }
+              //  .listStyle(PlainListStyle()) // تغيير نمط القائمة لجعلها بدون تصميم إضافي
+                .background(Color.clear) //
             }
             .sheet(isPresented: $showAddReminderSheet) {
                 AddReminderView(selectedDate: selectedDate) { title, location, date in
