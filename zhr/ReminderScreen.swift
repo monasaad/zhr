@@ -97,7 +97,7 @@ struct ReminderScreen: View {
                                 
                                 Text("\(formattedTime(reminder.date))")
                                     .font(.footnote)
-                                    .padding(.leading, 260)
+                                    .padding(.leading, 244)
                                     .foregroundColor(Color("PurpleDark"))
 
                             }
