@@ -1,6 +1,50 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%.1f %%" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " ٪ %.1f "
+          }
+        }
+      }
+    },
+    "%.1f bpm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%.1f نبضة لكل دقيقة"
+          }
+        }
+      }
+    },
+    "%.1f hours" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%.1f ساعات"
+          }
+        }
+      }
+    },
+    "%.1f km" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%.1f كم"
+          }
+        }
+      }
+    },
     "Activity" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -53,6 +97,17 @@
         }
       }
     },
+    "Heart Rate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نبضات القلب"
+          }
+        }
+      }
+    },
     "Hello, World!" : {
       "localizations" : {
         "ar" : {
@@ -81,6 +136,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "التنبيهات"
+          }
+        }
+      }
+    },
+    "Respiratory Rate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "معدل التنفس"
+          }
+        }
+      }
+    },
+    "Sleep" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "النوم"
+          }
+        }
+      }
+    },
+    "Steps" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الخطوات"
           }
         }
       }
