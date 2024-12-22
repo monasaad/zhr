@@ -45,6 +45,9 @@
         }
       }
     },
+    "%@" : {
+
+    },
     "Activity" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -66,6 +69,12 @@
         }
       }
     },
+    "Cancel" : {
+
+    },
+    "Create" : {
+
+    },
     "Current Location" : {
       "localizations" : {
         "ar" : {
@@ -85,6 +94,15 @@
           }
         }
       }
+    },
+    "Date" : {
+
+    },
+    "Date and Time" : {
+
+    },
+    "Details" : {
+
     },
     "Health" : {
       "extractionState" : "manual",
@@ -129,6 +147,12 @@
         }
       }
     },
+    "New Reminder" : {
+
+    },
+    "No reminders for this day" : {
+
+    },
     "Reminder" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -172,6 +196,12 @@
           }
         }
       }
+    },
+    "Time" : {
+
+    },
+    "Title" : {
+
     }
   },
   "version" : "1.0"
