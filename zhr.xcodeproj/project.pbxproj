@@ -813,7 +813,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"zhr/Preview Content\"";
-				DEVELOPMENT_TEAM = 92FU2LD8G8;
+				DEVELOPMENT_TEAM = 567VM89PF2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
@@ -851,7 +851,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"zhr/Preview Content\"";
-				DEVELOPMENT_TEAM = 92FU2LD8G8;
+				DEVELOPMENT_TEAM = 567VM89PF2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
