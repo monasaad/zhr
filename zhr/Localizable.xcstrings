@@ -59,6 +59,28 @@
         }
       }
     },
+    "Arrange family photos" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ترتيب الصور العائلية"
+          }
+        }
+      }
+    },
+    "Bake cookies or a simple cake with help" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "خبز كوكيز أو كعكة بسيطة معا"
+          }
+        }
+      }
+    },
     "Based on Apple Watch" : {
       "localizations" : {
         "ar" : {
@@ -144,6 +166,94 @@
         }
       }
     },
+    "Do light stretching exercises" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ممارسة تمارين التمدد الخفيفة"
+          }
+        }
+      }
+    },
+    "Do simple hand clapping games" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قم بألعاب التصفيق البسيطة"
+          }
+        }
+      }
+    },
+    "Draw in sand or with clay" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ارسم بالرمل أو بالطين"
+          }
+        }
+      }
+    },
+    "Draw or color simple pictures" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رسم أو تلوين صور بسيطة"
+          }
+        }
+      }
+    },
+    "Fold origami shapes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "صناعة اشكال عن طريق الاوريقامي"
+          }
+        }
+      }
+    },
+    "Folding clothes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "طي الملابس"
+          }
+        }
+      }
+    },
+    "Go to the park" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الذهاب الى  الحديقة"
+          }
+        }
+      }
+    },
+    "Go to traditional places" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الذهاب الى الاماكن التقليدية او الشعبية"
+          }
+        }
+      }
+    },
     "Health" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -176,6 +286,94 @@
         }
       }
     },
+    "Identify objects by touch (use a blindfold for fun)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "التعرف على الأشياء عن طريق اللمس (استخدم عصابة العينين للمتعة)"
+          }
+        }
+      }
+    },
+    "Learn a new skill" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعلم مهارة جديدة"
+          }
+        }
+      }
+    },
+    "Learn and repeat simple phrases in another language" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعلم وتكرار العبارات البسيطة بلغة أخرى"
+          }
+        }
+      }
+    },
+    "Listen to a podcast" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الاستماع الى البودكاست"
+          }
+        }
+      }
+    },
+    "Listen to nature sounds (birds or rain)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الإستماع الى اصوات الطبيعة (العصافير او المطر)"
+          }
+        }
+      }
+    },
+    "Listen to stories" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الإستماع الى القصص"
+          }
+        }
+      }
+    },
+    "Listen to The Qur’an" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الإستماع الى القرآن"
+          }
+        }
+      }
+    },
+    "Listening or reading stories from the Qur’an" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الاستماع او قراءة قصص من القران"
+          }
+        }
+      }
+    },
     "Location" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -183,6 +381,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "الموقع"
+          }
+        }
+      }
+    },
+    "Make a simple DIY craft" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "صناعة اعمال يدوية بسيطة"
           }
         }
       }
@@ -209,6 +418,72 @@
         }
       }
     },
+    "Plant or water some flowers" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "زرع أو سقي بعض الزهور"
+          }
+        }
+      }
+    },
+    "Play simple memory games (Like Differences between pictures)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لعب ألعاب الذاكرة البسيطة (مثل الاختلافات بين الصور)"
+          }
+        }
+      }
+    },
+    "Play simple memory games (Like matching pictures)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لعب ألعاب الذاكرة البسيطة (مثل مطابقة الصور)"
+          }
+        }
+      }
+    },
+    "Play with a soft ball (like a small rubber ball)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اللعب بكرة ناعمة (مثل كرة مطاطية صغيرة)"
+          }
+        }
+      }
+    },
+    "Prepare a snack together" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إعداد وجبة خفيفة معا"
+          }
+        }
+      }
+    },
+    "Read a short story" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قراءة قصة قصيرة"
+          }
+        }
+      }
+    },
     "Reminder" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -231,6 +506,28 @@
         }
       }
     },
+    "Roll" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حرك"
+          }
+        }
+      }
+    },
+    "Roll the dice to suggest new activities" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حرك النرد لاقتراح أنشطة جديدة"
+          }
+        }
+      }
+    },
     "Sleep" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -242,6 +539,28 @@
         }
       }
     },
+    "Solve a simple puzzle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حل لغز بسيط"
+          }
+        }
+      }
+    },
+    "Sort buttons or coins by color or size" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فرز الأزرار أو العملات المعدنية حسب اللون أو الحجم"
+          }
+        }
+      }
+    },
     "Steps" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -249,6 +568,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "الخطوات"
+          }
+        }
+      }
+    },
+    "Take a walk in the garden" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اخذ نزهة في الحديقة"
+          }
+        }
+      }
+    },
+    "Talk about childhood memories" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الحديث عن ذكريات الطفولة"
           }
         }
       }
@@ -275,6 +616,61 @@
         }
       }
     },
+    "Visiting friends or family" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "زيارة الاصدقاء او الاهل"
+          }
+        }
+      }
+    },
+    "Walk for 15 minutes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المشي لمدة ١٥ دقيقة"
+          }
+        }
+      }
+    },
+    "Watch a favorite TV show" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "متابعة برنامج مفضل"
+          }
+        }
+      }
+    },
+    "Watch a movie" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مشاهدة فلم"
+          }
+        }
+      }
+    },
+    "Watch videos of animals or nature" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مشاهدة مقاطع فيديو للحيوانات او للطبيعة"
+          }
+        }
+      }
+    },
     "We use your location to display relevant map information and provide location-based services." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -282,6 +678,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "نحن نستخدم موقعك لعرض معلومات الخريطة ذات الصلة وتوفير الخدمات القائمة على الموقع."
+          }
+        }
+      }
+    },
+    "Write simple tasks like their name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "كتابة كلمات بسيطة مثل أسمائهم"
           }
         }
       }
