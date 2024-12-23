@@ -4,97 +4,148 @@
 //
 //  Created by Huda Almadi on 22/12/2024.
 //
-
 import SwiftUI
 import WatchConnectivity
+import AVFoundation
 
-struct CallScreen2: View {
-    @State private var receivedPhoneNumber: String = "" // الرقم المستلم
-    
+// ContentView لتسجيل الصوت وإرساله
+struct ContentView: View {
+    @State private var audioDataReceived: Data?
+    @State private var isRecording = false
+    @State private var recorder: AVAudioRecorder?
+
     var body: some View {
         VStack {
-            Text("Received Phone Number:")
-                .font(.headline)
-            Text(receivedPhoneNumber.isEmpty ? "Waiting for a number..." : receivedPhoneNumber)
-                .font(.title)
-                .foregroundColor(receivedPhoneNumber.isEmpty ? .gray : .blue)
-                .padding()
-            
-            Spacer()
-            
-            if !receivedPhoneNumber.isEmpty {
-                Button(action: {
-                    makePhoneCall(to: receivedPhoneNumber)
-                }) {
-                    Text("Call \(receivedPhoneNumber)")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
+            Button(action: {
+                if self.isRecording {
+                    // إيقاف التسجيل
+                    self.stopRecording()
+                } else {
+                    // بدء التسجيل
+                    self.startRecording()
                 }
-                .padding()
+            }) {
+                Text(isRecording ? "Stop Recording" : "Press and Hold to Record")
+                    .font(.headline)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(isRecording ? Color.red : Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+            .padding()
+
+            // عرض الصوت المستلم من الساعة
+            if let audioData = audioDataReceived {
+                Text("Audio received!")
+                    .font(.subheadline)
+                    .padding()
+                // إذا كنت بحاجة لعرض أو تشغيل الصوت، يمكنك إضافته هنا
             }
         }
-        .padding()
         .onAppear {
-            setupWCSession()
+            WatchSessionManager.shared.onMessageReceived = { message in
+                if let audioData = message["audio"] as? Data {
+                    // استلام الصوت من الساعة على الـ iPhone
+                    self.audioDataReceived = audioData
+                }
+            }
+        }
+    }
+
+    // بدء التسجيل الصوتي
+    func startRecording() {
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.record, mode: .default)
+            try audioSession.setActive(true)
+            
+            let settings: [String: Any] = [
+                AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                AVSampleRateKey: 12000,
+                AVNumberOfChannelsKey: 1,
+                AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+            ]
+            
+            let url = FileManager.default.temporaryDirectory.appendingPathComponent("recording.m4a")
+            recorder = try AVAudioRecorder(url: url, settings: settings)
+            recorder?.record()
+            
+            isRecording = true
+        } catch {
+            print("Error starting audio recorder: \(error.localizedDescription)")
         }
     }
     
-    // تفعيل WCSession
-    private func setupWCSession() {
+    // إيقاف التسجيل وإرسال الصوت إلى الساعة
+    func stopRecording() {
+        recorder?.stop()
+        isRecording = false
+        
+        guard let recorder = recorder else { return }
+        
+        let url = recorder.url
+        sendAudioToWatch(url: url)
+    }
+    
+    // إرسال الصوت إلى الساعة
+    func sendAudioToWatch(url: URL) {
+        if WCSession.default.isReachable {
+            do {
+                let audioData = try Data(contentsOf: url)
+                WCSession.default.sendMessage(["audio": audioData], replyHandler: nil, errorHandler: nil)
+            } catch {
+                print("Error sending audio data: \(error.localizedDescription)")
+            }
+        }
+    }
+}
+
+// WatchSessionManager لتفعيل اتصال الـ WCSession بين الساعة والـ iPhone
+class WatchSessionManager: NSObject, WCSessionDelegate {
+    static let shared = WatchSessionManager()
+    
+    var onMessageReceived: (([String: Any]) -> Void)?
+    
+    private override init() {
+        super.init()
         if WCSession.isSupported() {
             let session = WCSession.default
-            session.delegate = WCSessionDelegateHandler(receivedPhoneNumber: $receivedPhoneNumber)
+            session.delegate = self
             session.activate()
         }
     }
     
-    // إجراء المكالمة
-    private func makePhoneCall(to phoneNumber: String) {
-        if let phoneURL = URL(string: "tel://\(phoneNumber)"),
-           UIApplication.shared.canOpenURL(phoneURL) {
-            UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
-        } else {
-            print("Unable to make the call.")
-        }
-    }
-}
-
-// جلسة الاتصال بالساعة
-class WCSessionDelegateHandler: NSObject, WCSessionDelegate {
-    @Binding var receivedPhoneNumber: String
-    
-    init(receivedPhoneNumber: Binding<String>) {
-        _receivedPhoneNumber = receivedPhoneNumber
-    }
-    
+    // تنفيذ الدالة لتفعيل WCSession
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         if let error = error {
-            print("WCSession activation failed: \(error.localizedDescription)")
+            print("Activation failed with error: \(error.localizedDescription)")
         } else {
-            print("WCSession activated with state: \(activationState.rawValue)")
+            print("WCSession activated.")
         }
     }
     
-    func sessionDidBecomeInactive(_ session: WCSession) {
-        print("WCSession did become inactive.")
-    }
-    
-    func sessionDidDeactivate(_ session: WCSession) {
-        print("WCSession did deactivate.")
-        WCSession.default.activate()
-    }
-    
+    // استلام الرسائل
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        if let phoneNumber = message["phoneNumber"] as? String {
-            DispatchQueue.main.async {
-                self.receivedPhoneNumber = phoneNumber
-            }
-        }
+        onMessageReceived?(message)
     }
+    
+    // استلام البيانات (مثل الصوت أو الملفات)
+    func session(_ session: WCSession, didReceive message: [String : Any]) {
+        onMessageReceived?(message)
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {}
+    
+    func sessionDidDeactivate(_ session: WCSession) {}
 }
 
-#Preview {
-    CallScreen2()
+// Preview لـ ContentView
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+            .previewDevice("iPhone 15") // تحديد جهاز iPhone المناسب للاختبار
+            .previewLayout(.sizeThatFits) // لتناسب المحتوى
+            .frame(width: 300, height: 300) // تحديد الحجم المناسب للعرض
+    }
 }

@@ -70,6 +70,9 @@
         }
       }
     },
+    "Audio received!" : {
+
+    },
     "Bake cookies or a simple cake with help" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -277,6 +280,7 @@
       }
     },
     "Hello, World!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -473,6 +477,9 @@
         }
       }
     },
+    "Press and Hold to Record" : {
+
+    },
     "Read a short story" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -571,6 +578,9 @@
           }
         }
       }
+    },
+    "Stop Recording" : {
+
     },
     "Take a walk in the garden" : {
       "extractionState" : "manual",
