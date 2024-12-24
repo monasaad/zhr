@@ -535,6 +535,9 @@
         }
       }
     },
+    "Sign in with Apple" : {
+
+    },
     "Sleep" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -702,6 +705,9 @@
           }
         }
       }
+    },
+    "You're signed in!" : {
+
     }
   },
   "version" : "1.0"
