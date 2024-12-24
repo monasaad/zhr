@@ -83,21 +83,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F9F86A332D0ABE5500BAE446"
-            BuildableName = "zhr.app"
-            BlueprintName = "zhr"
-            ReferencedContainer = "container:zhr.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
             BlueprintIdentifier = "9ED78AF02D17FBB400FDA0C6"
             BuildableName = "zhrWatch Watch App.app"
             BlueprintName = "zhrWatch Watch App"
             ReferencedContainer = "container:zhr.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
