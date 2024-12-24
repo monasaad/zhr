@@ -105,6 +105,9 @@
         }
       }
     },
+    "Center on Watch Location" : {
+
+    },
     "Create" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -117,6 +120,7 @@
       }
     },
     "Current Location" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -234,6 +238,9 @@
           }
         }
       }
+    },
+    "Go to Main Tab View" : {
+
     },
     "Go to the park" : {
       "extractionState" : "manual",
