@@ -5,17 +5,17 @@ struct HomeScreen: View {
     @State private var position: MapCameraPosition = .userLocation(
         fallback: .camera(MapCamera(centerCoordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0), distance: 1000))
     )
-    @StateObject private var locationManager = LocationManager() // Handles WatchConnectivity and location data
+    @StateObject private var locationManager = LocationManager()
 
     var body: some View {
         ZStack {
-            // Map View
+            // Map displaying the last known location
             Map(position: $position) {
                 if let coordinate = locationManager.lastKnownLocation?.coordinate {
-                    Annotation("Remote User Location", coordinate: coordinate) {
+                    Annotation("Watch Location", coordinate: coordinate) {
                         Circle()
                             .fill(Color.blue)
-                            .frame(width: 12, height: 12) // Show Watch location as a small circle
+                            .frame(width: 12, height: 12) // Show location as a small circle
                     }
                 }
             }
@@ -24,17 +24,13 @@ struct HomeScreen: View {
             // Center Button
             VStack {
                 Spacer()
-                Button(action: {
-                    centerOnRemoteLocation()
-                }) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 16)
-                            .fill(Color.blue)
-                            .frame(width: 250, height: 50)
-                        Text("Center on Watch Location")
-                            .foregroundColor(.white)
-                    }
+                Button("Center on Watch Location") {
+                    centerOnWatchLocation()
                 }
+                .padding()
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(10)
                 .padding(.bottom, 20)
             }
         }
@@ -43,7 +39,7 @@ struct HomeScreen: View {
         }
     }
 
-    private func centerOnRemoteLocation() {
+    private func centerOnWatchLocation() {
         if let location = locationManager.lastKnownLocation {
             position = .camera(
                 MapCamera(
@@ -53,8 +49,6 @@ struct HomeScreen: View {
                     pitch: 0
                 )
             )
-        } else {
-            print("No location data available.")
         }
     }
 }

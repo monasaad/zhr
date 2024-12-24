@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct zhrWatch_Watch_AppApp: App {
+struct zhrWatchApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView1() // Use ContentView1 as the main view
         }
     }
 }
