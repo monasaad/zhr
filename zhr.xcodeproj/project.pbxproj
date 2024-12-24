@@ -819,7 +819,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"zhr/Preview Content\"";
-				DEVELOPMENT_TEAM = HGMZ799FXL;
+				DEVELOPMENT_TEAM = M6NFWW666U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
@@ -836,7 +836,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mona.zhr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumana.zhr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -857,7 +857,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"zhr/Preview Content\"";
-				DEVELOPMENT_TEAM = HGMZ799FXL;
+				DEVELOPMENT_TEAM = M6NFWW666U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
@@ -874,7 +874,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mona.zhr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumana.zhr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
