@@ -1,20 +1,31 @@
 import SwiftUI
+import MapKit
 
 struct ContentView1: View {
     @StateObject private var locationManager = WatchLocationManager()
+    @State private var region = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
+        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+    )
 
     var body: some View {
         VStack {
-            Text("Sending Location to iPhone...")
-                .padding()
-        }
-        .onAppear {
-            locationManager.setupWatchConnectivity()
+            if let location = locationManager.currentLocation {
+                Map(coordinateRegion: $region, showsUserLocation: true)
+                    .onAppear {
+                        updateRegion(for: location)
+                    }
+                    .onChange(of: location) { newLocation in
+                        updateRegion(for: newLocation)
+                    }
+            } else {
+                Text("Waiting for location...")
+                    .padding()
+            }
         }
     }
-}
 
-#Preview {
-    ContentView1()
+    private func updateRegion(for location: CLLocation) {
+        region.center = location.coordinate
+    }
 }
-

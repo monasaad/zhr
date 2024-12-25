@@ -24,18 +24,19 @@ class WatchLocationManager: NSObject, ObservableObject, CLLocationManagerDelegat
     }
 
     func sendLocationToPhone(location: CLLocation) {
-        if WCSession.default.isReachable {
-            let message: [String: Any] = [
-                "latitude": location.coordinate.latitude,
-                "longitude": location.coordinate.longitude
-            ]
-            WCSession.default.sendMessage(message, replyHandler: nil) { error in
-                print("Error sending location to iPhone: \(error.localizedDescription)")
-            }
-            print("Sent location to iPhone: \(message)")
-        } else {
+        guard WCSession.default.isReachable else {
             print("iPhone is not reachable")
+            return
         }
+
+        let message: [String: Any] = [
+            "latitude": location.coordinate.latitude,
+            "longitude": location.coordinate.longitude
+        ]
+        WCSession.default.sendMessage(message, replyHandler: nil) { error in
+            print("Error sending location to iPhone: \(error.localizedDescription)")
+        }
+        print("Sent location to iPhone: \(message)")
     }
 
     func setupWatchConnectivity() {

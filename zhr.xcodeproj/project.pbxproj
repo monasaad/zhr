@@ -63,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6B00FF3D2D1BFCFF008A689F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9ED78AEC2D17FBB400FDA0C6 /* zhrWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhrWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ED78AF12D17FBB400FDA0C6 /* zhrWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zhrWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ED78B032D17FBB500FDA0C6 /* zhrWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "zhrWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +72,16 @@
 		F9F86A442D0ABE5600BAE446 /* zhrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zhrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F86A4E2D0ABE5600BAE446 /* zhrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zhrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6B00FF3B2D1BFB58008A689F /* Exceptions for "zhr" folder in "zhr" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F9F86A332D0ABE5500BAE446 /* zhr */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9ED78AF52D17FBB400FDA0C6 /* zhrWatch Watch App */ = {
@@ -90,6 +101,9 @@
 		};
 		F9F86A362D0ABE5500BAE446 /* zhr */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6B00FF3B2D1BFB58008A689F /* Exceptions for "zhr" folder in "zhr" target */,
+			);
 			path = zhr;
 			sourceTree = "<group>";
 		};
@@ -151,6 +165,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B00FF3C2D1BFCFF008A689F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B00FF3D2D1BFCFF008A689F /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F9F86A2B2D0ABE5500BAE446 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +182,7 @@
 				9ED78AF52D17FBB400FDA0C6 /* zhrWatch Watch App */,
 				9ED78B062D17FBB500FDA0C6 /* zhrWatch Watch AppTests */,
 				9ED78B102D17FBB500FDA0C6 /* zhrWatch Watch AppUITests */,
+				6B00FF3C2D1BFCFF008A689F /* Frameworks */,
 				F9F86A352D0ABE5500BAE446 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -560,11 +583,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"zhrWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = HGMZ799FXL;
+				DEVELOPMENT_TEAM = M6NFWW666U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "zhrWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = zhrWatch;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to display relevant map information and provide location-based services.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to display relevant map information and provide location-based services.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -572,7 +597,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.huda.zhrWatch.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumana.zhr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -592,11 +617,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"zhrWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = HGMZ799FXL;
+				DEVELOPMENT_TEAM = M6NFWW666U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "zhrWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = zhrWatch;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to display relevant map information and provide location-based services.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to display relevant map information and provide location-based services.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -604,7 +631,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.huda.zhrWatch.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumana.zhr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -822,9 +849,11 @@
 				DEVELOPMENT_TEAM = M6NFWW666U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = zhr/Info.plist;
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to display relevant map information and provide location-based services.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to display relevant map information and provide location-based services.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -860,9 +889,11 @@
 				DEVELOPMENT_TEAM = M6NFWW666U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = zhr/Info.plist;
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to display relevant map information and provide location-based services.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to display relevant map information and provide location-based services.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
