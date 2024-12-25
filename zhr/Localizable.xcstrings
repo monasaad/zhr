@@ -239,9 +239,6 @@
         }
       }
     },
-    "Go to Main Tab View" : {
-
-    },
     "Go to the park" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -712,9 +709,6 @@
           }
         }
       }
-    },
-    "You're signed in!" : {
-
     }
   },
   "version" : "1.0"

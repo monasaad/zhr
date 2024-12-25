@@ -6,19 +6,33 @@
 //
 
 import Foundation
-import Combine
+import AuthenticationServices
 
-class UserSessionViewModel: ObservableObject {
-    @Published var isSignedIn: Bool = false
-    @Published var userName: String = ""
+class UserSession {
+    private let userIdKey = "AppleUserID"
 
-    func signIn(name: String) {
-        userName = name
-        isSignedIn = true // Update sign-in state
+    var isSignedIn: Bool {
+        return loadUserId() != nil
+    }
+
+    func signIn(appleIDCredential: ASAuthorizationAppleIDCredential) {
+        let userId = appleIDCredential.user
+        saveUserId(userId)
     }
 
     func signOut() {
-        userName = ""
-        isSignedIn = false // Update sign-out state
+        clearUserId()
+    }
+
+    private func saveUserId(_ userId: String) {
+        UserDefaults.standard.set(userId, forKey: userIdKey)
+    }
+
+    private func loadUserId() -> String? {
+        return UserDefaults.standard.string(forKey: userIdKey)
+    }
+
+    private func clearUserId() {
+        UserDefaults.standard.removeObject(forKey: userIdKey)
     }
 }
