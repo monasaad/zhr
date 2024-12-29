@@ -844,9 +844,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = zhr/zhr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"zhr/Preview Content\"";
-				DEVELOPMENT_TEAM = M6NFWW666U;
+				DEVELOPMENT_TEAM = 92FU2LD8G8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = zhr/Info.plist;
@@ -854,7 +854,7 @@
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to display relevant map information and provide location-based services.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to display relevant map information and provide location-based services.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show your position on the map.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -865,7 +865,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jumana.zhr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mona.zhr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -884,9 +884,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = zhr/zhr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"zhr/Preview Content\"";
-				DEVELOPMENT_TEAM = M6NFWW666U;
+				DEVELOPMENT_TEAM = 92FU2LD8G8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = zhr/Info.plist;
@@ -894,7 +894,7 @@
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app needs permission to update your health data to enhance your fitness and wellness features.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to display relevant map information and provide location-based services.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to display relevant map information and provide location-based services.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show your position on the map.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -905,7 +905,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jumana.zhr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mona.zhr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

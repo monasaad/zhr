@@ -2,54 +2,81 @@ import WatchConnectivity
 import CoreLocation
 import SwiftUI
 
-class LocationManager: NSObject, ObservableObject, WCSessionDelegate {
-    @Published var lastKnownLocation: CLLocation? = nil // Stores the location received from the Watch
+class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+    private let manager = CLLocationManager()
+    @Published var lastKnownLocation: CLLocation? = nil
 
     override init() {
         super.init()
-        setupWatchConnectivity()
+        manager.delegate = self
     }
 
-    func setupWatchConnectivity() {
-        if WCSession.isSupported() {
-            WCSession.default.delegate = self
-            WCSession.default.activate()
-            print("WCSession activated successfully on iPhone")
-        }
+    func requestLocationPermission() {
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
     }
 
-    // Handle messages from the Watch
-    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
-        guard let latitude = message["latitude"] as? Double,
-              let longitude = message["longitude"] as? Double else {
-            print("Failed to parse location from Watch message")
-            return
-        }
-
-        DispatchQueue.main.async {
-            self.lastKnownLocation = CLLocation(latitude: latitude, longitude: longitude)
-            print("Received location from Watch: \(latitude), \(longitude)")
-        }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        lastKnownLocation = locations.last
     }
 
-    // Handle WCSession activation
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        if let error = error {
-            print("WCSession activation failed on iPhone: \(error.localizedDescription)")
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        if manager.authorizationStatus == .authorizedWhenInUse || manager.authorizationStatus == .authorizedAlways {
+            manager.startUpdatingLocation()
         } else {
-            print("WCSession activated successfully on iPhone")
+            print("Location permissions not granted.")
         }
-    }
-
-    // Handle session becoming inactive
-    func sessionDidBecomeInactive(_ session: WCSession) {
-        print("WCSession became inactive on iPhone")
-    }
-
-    // Handle session deactivation
-    func sessionDidDeactivate(_ session: WCSession) {
-        print("WCSession deactivated on iPhone")
-        // Reactivate the session if necessary
-        WCSession.default.activate()
     }
 }
+
+//class LocationManager: NSObject, ObservableObject, WCSessionDelegate {
+//    @Published var lastKnownLocation: CLLocation? = nil // Stores the location received from the Watch
+//
+//    override init() {
+//        super.init()
+//        setupWatchConnectivity()
+//    }
+//
+//    func setupWatchConnectivity() {
+//        if WCSession.isSupported() {
+//            WCSession.default.delegate = self
+//            WCSession.default.activate()
+//            print("WCSession activated successfully on iPhone")
+//        }
+//    }
+//
+//    // Handle messages from the Watch
+//    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+//        guard let latitude = message["latitude"] as? Double,
+//              let longitude = message["longitude"] as? Double else {
+//            print("Failed to parse location from Watch message")
+//            return
+//        }
+//
+//        DispatchQueue.main.async {
+//            self.lastKnownLocation = CLLocation(latitude: latitude, longitude: longitude)
+//            print("Received location from Watch: \(latitude), \(longitude)")
+//        }
+//    }
+//
+//    // Handle WCSession activation
+//    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+//        if let error = error {
+//            print("WCSession activation failed on iPhone: \(error.localizedDescription)")
+//        } else {
+//            print("WCSession activated successfully on iPhone")
+//        }
+//    }
+//
+//    // Handle session becoming inactive
+//    func sessionDidBecomeInactive(_ session: WCSession) {
+//        print("WCSession became inactive on iPhone")
+//    }
+//
+//    // Handle session deactivation
+//    func sessionDidDeactivate(_ session: WCSession) {
+//        print("WCSession deactivated on iPhone")
+//        // Reactivate the session if necessary
+//        WCSession.default.activate()
+//    }
+//}
