@@ -553,6 +553,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HGMZ799FXL;
 				INFOPLIST_KEY_CFBundleDisplayName = zhrWatch;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.huda.zhrWatch;
@@ -566,6 +567,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HGMZ799FXL;
 				INFOPLIST_KEY_CFBundleDisplayName = zhrWatch;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.huda.zhrWatch;
@@ -583,7 +585,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"zhrWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = M6NFWW666U;
+				DEVELOPMENT_TEAM = HGMZ799FXL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "zhrWatch-Watch-App-Info.plist";
@@ -597,7 +599,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jumana.zhr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huda.zhr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -617,7 +619,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"zhrWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = M6NFWW666U;
+				DEVELOPMENT_TEAM = HGMZ799FXL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "zhrWatch-Watch-App-Info.plist";
@@ -631,7 +633,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jumana.zhr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huda.zhr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -846,7 +848,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"zhr/Preview Content\"";
-				DEVELOPMENT_TEAM = 92FU2LD8G8;
+				DEVELOPMENT_TEAM = HGMZ799FXL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = zhr/Info.plist;
@@ -865,7 +867,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mona.zhr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huda.zhr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -886,7 +888,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"zhr/Preview Content\"";
-				DEVELOPMENT_TEAM = 92FU2LD8G8;
+				DEVELOPMENT_TEAM = HGMZ799FXL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = zhr/Info.plist;
@@ -905,7 +907,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mona.zhr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huda.zhr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
