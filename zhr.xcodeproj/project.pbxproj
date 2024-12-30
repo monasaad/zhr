@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B74D9D22D22713A001EBB2F /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B74D9D12D22713A001EBB2F /* WatchConnectivity.framework */; };
+		6B74D9D42D227250001EBB2F /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B74D9D32D227250001EBB2F /* WatchConnectivity.framework */; };
 		9ED78AF22D17FBB400FDA0C6 /* zhrWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9ED78AF12D17FBB400FDA0C6 /* zhrWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 
 /* Begin PBXFileReference section */
 		6B00FF3D2D1BFCFF008A689F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6B74D9D12D22713A001EBB2F /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS11.2.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		6B74D9D32D227250001EBB2F /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 		9ED78AEC2D17FBB400FDA0C6 /* zhrWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhrWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ED78AF12D17FBB400FDA0C6 /* zhrWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zhrWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ED78B032D17FBB500FDA0C6 /* zhrWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "zhrWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B74D9D22D22713A001EBB2F /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B74D9D42D227250001EBB2F /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +174,8 @@
 		6B00FF3C2D1BFCFF008A689F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6B74D9D12D22713A001EBB2F /* WatchConnectivity.framework */,
+				6B74D9D32D227250001EBB2F /* WatchConnectivity.framework */,
 				6B00FF3D2D1BFCFF008A689F /* MapKit.framework */,
 			);
 			name = Frameworks;

@@ -3,27 +3,27 @@ import WatchConnectivity
 import SwiftUI
 
 class WatchLocationManager: NSObject, ObservableObject, CLLocationManagerDelegate, WCSessionDelegate {
-    private let manager = CLLocationManager()
+    private let locationManager = CLLocationManager()
     @Published var currentLocation: CLLocation? = nil
 
     override init() {
         super.init()
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestAlwaysAuthorization()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
         setupWatchConnectivity()
-        manager.startUpdatingLocation()
+        locationManager.startUpdatingLocation()
     }
 
+    // CLLocationManagerDelegate method
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        currentLocation = locations.last
-        if let location = currentLocation {
-            print("Updated location on Watch: \(location.coordinate.latitude), \(location.coordinate.longitude)")
-            sendLocationToPhone(location: location)
-        }
+        guard let location = locations.last else { return }
+        currentLocation = location
+        print("Updated location on Watch: \(location.coordinate.latitude), \(location.coordinate.longitude)")
+        sendLocationToPhone(location: location)
     }
 
-    func sendLocationToPhone(location: CLLocation) {
+    private func sendLocationToPhone(location: CLLocation) {
         guard WCSession.default.isReachable else {
             print("iPhone is not reachable")
             return
@@ -39,14 +39,16 @@ class WatchLocationManager: NSObject, ObservableObject, CLLocationManagerDelegat
         print("Sent location to iPhone: \(message)")
     }
 
-    func setupWatchConnectivity() {
+    private func setupWatchConnectivity() {
         if WCSession.isSupported() {
-            WCSession.default.delegate = self
-            WCSession.default.activate()
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
             print("WCSession activated successfully on Watch")
         }
     }
 
+    // WCSessionDelegate required methods
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         if let error = error {
             print("WCSession activation failed on Watch: \(error.localizedDescription)")

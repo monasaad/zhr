@@ -3,22 +3,23 @@ import CoreLocation
 import SwiftUI
 
 class LocationManager: NSObject, ObservableObject, WCSessionDelegate {
-    @Published var lastKnownLocation: CLLocation? = nil // Stores the location received from the Watch
+    @Published var lastKnownLocation: CLLocation? = nil
 
     override init() {
         super.init()
         setupWatchConnectivity()
     }
 
-    func setupWatchConnectivity() {
+    private func setupWatchConnectivity() {
         if WCSession.isSupported() {
-            WCSession.default.delegate = self
-            WCSession.default.activate()
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
             print("WCSession activated successfully on iPhone")
         }
     }
 
-    // Handle messages from the Watch
+    // Handle incoming messages from the Watch
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         guard let latitude = message["latitude"] as? Double,
               let longitude = message["longitude"] as? Double else {
@@ -32,7 +33,17 @@ class LocationManager: NSObject, ObservableObject, WCSessionDelegate {
         }
     }
 
-    // Handle WCSession activation
+    // WCSessionDelegate required methods
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        print("WCSession became inactive on iPhone")
+    }
+
+    func sessionDidDeactivate(_ session: WCSession) {
+        print("WCSession deactivated on iPhone")
+        // Reactivate the session if necessary
+        WCSession.default.activate()
+    }
+
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         if let error = error {
             print("WCSession activation failed on iPhone: \(error.localizedDescription)")
@@ -40,20 +51,7 @@ class LocationManager: NSObject, ObservableObject, WCSessionDelegate {
             print("WCSession activated successfully on iPhone")
         }
     }
-
-    // Required: Handle session becoming inactive
-    func sessionDidBecomeInactive(_ session: WCSession) {
-        print("WCSession became inactive on iPhone")
-    }
-
-    // Required: Handle session deactivation
-    func sessionDidDeactivate(_ session: WCSession) {
-        print("WCSession deactivated on iPhone")
-        // Reactivate the session if necessary
-        WCSession.default.activate()
-    }
 }
-
 
 //class LocationManager: NSObject, ObservableObject, WCSessionDelegate {
 //    @Published var lastKnownLocation: CLLocation? = nil // Stores the location received from the Watch
