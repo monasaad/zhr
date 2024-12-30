@@ -19,7 +19,7 @@ struct SignInScreen: View {
                 VStack {
                     Image("ZHR")
                     .resizable()
-                    .frame(width: 128, height: 128)
+                    .frame(width: 200, height: 200)
                    Spacer()
                         .frame(height: 300)
                     
@@ -45,10 +45,8 @@ struct SignInScreen: View {
                     // NavigationLink that activates when signed in
                     NavigationLink(destination: MainTabView()){
                                            //isActive: $viewModel.isSignedIn ) {
-                                
                                 EmptyView()
                             }
-                    
                     if let errorMessage = viewModel.errorMessage {
                         Text(errorMessage)
                             .foregroundColor(.red)
@@ -59,8 +57,8 @@ struct SignInScreen: View {
                 .padding()
                 .background(Color(.systemBackground))
             }
-            .padding(.top, 170)
-}
+            .padding(.top, 100)
+        }.navigationBarHidden(true)
     }
 }
 
