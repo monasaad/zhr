@@ -1,10 +1,3 @@
-//
-//
-//  SignInScreen.swift
-//  zhr
-//
-//  Created by Razzan on 22/06/1446 AH.
-//
 import SwiftUI
 import AuthenticationServices
 
@@ -13,52 +6,45 @@ struct SignInScreen: View {
 
     var body: some View {
         NavigationStack {
-            
-            
-            GeometryReader { geometry in
-                VStack {
-                    Image("ZHR")
+            VStack {
+                Image("ZHR")
                     .resizable()
+                    .scaledToFit()
                     .frame(width: 200, height: 200)
-                   Spacer()
-                        .frame(height: 300)
-                    
-                 
-                    SignInWithAppleButton(
-                        onRequest: { request in
-                            viewModel.handleRequest(request)
-                        },
-                        onCompletion: { result in
-                            viewModel.handleCompletion(result)
-                            // Check if the sign-in is successful and update the state
-                            if case .success = result {
-                                viewModel.isSignedIn  = true
-                            }
+
+                Spacer().frame(height: 300)
+
+                SignInWithAppleButton(
+                    onRequest: viewModel.handleRequest,
+                    onCompletion: { result in
+                        viewModel.handleCompletion(result)
+                        if case .success = result {
+                            viewModel.isSignedIn = true
+                            // Set UserDefaults to mark splash screen as shown
+                            UserDefaults.standard.set(true, forKey: "hasShownSplashScreen")
                         }
-                    )
-                    .signInWithAppleButtonStyle(.black)
-                            .frame(width: 331.33, height: 59)
-                            .cornerRadius(16)
-                            .shadow(radius: 4)
-                            .accessibility(label: Text("Sign in with Apple"))
-                    
-                    // NavigationLink that activates when signed in
-                    NavigationLink(destination: MainTabView()){
-                                           //isActive: $viewModel.isSignedIn ) {
-                                EmptyView()
-                            }
-                    if let errorMessage = viewModel.errorMessage {
-                        Text(errorMessage)
-                            .foregroundColor(.red)
-                            .padding(.top, 20)
                     }
+                )
+                .signInWithAppleButtonStyle(.black)
+                .frame(width: 331, height: 59)
+                .cornerRadius(16)
+                .shadow(radius: 4)
+                .accessibility(label: Text("Sign in with Apple"))
+
+                if let errorMessage = viewModel.errorMessage {
+                    Text(errorMessage)
+                        .foregroundColor(.red)
+                        .padding(.top, 20)
                 }
-                .padding()
-                .padding()
-                .background(Color(.systemBackground))
             }
+            .padding()
+            .background(Color(.systemBackground))
             .padding(.top, 100)
-        }.navigationBarHidden(true)
+            .navigationDestination(isPresented: $viewModel.isSignedIn) {
+                MainTabView() // Navigate to MainTabView when signed in
+            }
+            .navigationBarHidden(true)
+        }
     }
 }
 

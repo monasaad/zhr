@@ -412,6 +412,9 @@
         }
       }
     },
+    "Next" : {
+
+    },
     "No reminders for this day" : {
       "extractionState" : "manual",
       "localizations" : {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnBording: View {
     @State private var currentPage = 0
-    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
+//    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
     @State private var navigateToSignIn = false // إضافة حالة للتنقل إلى SignInScreen
 
     init() {
@@ -58,7 +58,7 @@ struct OnBording: View {
                         Spacer()
 
                         Button(action: {
-                            hasSeenOnboarding = true
+//                            hasSeenOnboarding = true
                             navigateToSignIn = true // تحديد التنقل إلى SignInScreen
                         }) {
                             Text("Next")
@@ -123,8 +123,6 @@ struct OnboardingPageView: View {
     }
 }
 
-struct OnBording_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBording()
-    }
+#Preview {
+    OnBording()
 }
