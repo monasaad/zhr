@@ -105,6 +105,9 @@
         }
       }
     },
+    "Check Reachability" : {
+
+    },
     "Create" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -482,6 +485,9 @@
       }
     },
     "Press and Hold to Record" : {
+
+    },
+    "Reachable: %@" : {
 
     },
     "Read a short story" : {

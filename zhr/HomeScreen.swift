@@ -9,18 +9,34 @@ struct HomeScreen: View {
     @StateObject private var locationManager = LocationManager()
 
     var body: some View {
-        Map(coordinateRegion: $region, showsUserLocation: true)
-            .ignoresSafeArea()
-            .onAppear {
-                if let location = locationManager.lastKnownLocation {
-                    updateRegion(for: location)
+        VStack {
+            HStack {
+                Button(action: {
+                    locationManager.checkReachability()
+                }) {
+                    Text("Check Reachability")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                 }
+                Text("Reachable: \(locationManager.isReachable ? "Yes" : "No")")
+                    .padding()
             }
-            .onChange(of: locationManager.lastKnownLocation) { newLocation in
-                if let location = newLocation {
-                    updateRegion(for: location)
+
+            Map(coordinateRegion: $region, showsUserLocation: true)
+                .ignoresSafeArea()
+                .onAppear {
+                    if let location = locationManager.lastKnownLocation {
+                        updateRegion(for: location)
+                    }
                 }
-            }
+                .onChange(of: locationManager.lastKnownLocation) { newLocation in
+                    if let location = newLocation {
+                        updateRegion(for: location)
+                    }
+                }
+        }
     }
 
     private func updateRegion(for location: CLLocation) {
