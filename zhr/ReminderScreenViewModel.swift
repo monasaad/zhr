@@ -5,6 +5,14 @@
 //  Created by Huda Almadi on 23/12/2024.
 //
 import Foundation
+import SwiftData
+// تعريف هيكل Reminder هنا
+struct Reminder: Identifiable, Codable {
+    var id = UUID()
+    let title: String
+    let location: String
+    let date: Date
+}
 
 class ReminderScreenViewModel: ObservableObject {
     @Published var selectedMonth = Calendar.current.component(.month, from: Date())
@@ -12,6 +20,10 @@ class ReminderScreenViewModel: ObservableObject {
     @Published var reminders: [Date: [Reminder]] = [:] // تخزين التذكيرات حسب اليوم
 
     let months = Calendar.current.monthSymbols
+
+    init() {
+        loadReminders() // تحميل التذكيرات عند بدء تشغيل ViewModel
+    }
 
     func monthName(from month: Int) -> String {
         let dateFormatter = DateFormatter()
@@ -28,6 +40,8 @@ class ReminderScreenViewModel: ObservableObject {
         } else {
             reminders[keyDate] = [newReminder]
         }
+
+        saveReminders() // حفظ التذكيرات بعد إضافتها
     }
 
     func clearTime(for date: Date) -> Date {
@@ -65,5 +79,22 @@ class ReminderScreenViewModel: ObservableObject {
         formatter.timeStyle = .short
         return formatter.string(from: date)
     }
-}
 
+    // حفظ التذكيرات في UserDefaults
+    func saveReminders() {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(reminders) {
+            UserDefaults.standard.set(encoded, forKey: "reminders")
+        }
+    }
+
+    // تحميل التذكيرات من UserDefaults
+    func loadReminders() {
+        if let savedReminders = UserDefaults.standard.object(forKey: "reminders") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedReminders = try? decoder.decode([Date: [Reminder]].self, from: savedReminders) {
+                reminders = loadedReminders
+            }
+        }
+    }
+}
