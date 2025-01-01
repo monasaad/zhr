@@ -22,19 +22,18 @@ struct zhrWatchApp: App {
 
     var body: some Scene {
         WindowGroup {
-            Content() // Main content view
+            
+            Content()  // Use a SwiftUI view here
         }
     }
 }
 
 // AppDelegate for handling lifecycle and background tasks
-class AppDelegate: NSObject, WKApplicationDelegate, WKExtensionDelegate {
-    // Called when the app has finished launching
+class AppDelegate: NSObject, WKExtensionDelegate {
     func applicationDidFinishLaunching() {
         print("Watch App Launched")
     }
 
-    // Handles background tasks such as watch connectivity tasks
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
         for task in backgroundTasks {
             if let connectivityTask = task as? WKWatchConnectivityRefreshBackgroundTask {

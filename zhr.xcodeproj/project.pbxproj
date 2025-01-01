@@ -81,29 +81,11 @@
 			);
 			target = F9F86A332D0ABE5500BAE446 /* zhr */;
 		};
-		6B74DA1E2D24A2DE001EBB2F /* Exceptions for "zhr" folder in "zhrWatch Watch App" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				HomeScreen.swift,
-				LocationManager.swift,
-			);
-			target = 9ED78AF02D17FBB400FDA0C6 /* zhrWatch Watch App */;
-		};
-		6B74DA232D24A664001EBB2F /* Exceptions for "zhrWatch Watch App" folder in "zhr" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				WatchLocationManager.swift,
-			);
-			target = F9F86A332D0ABE5500BAE446 /* zhr */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9ED78AF52D17FBB400FDA0C6 /* zhrWatch Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				6B74DA232D24A664001EBB2F /* Exceptions for "zhrWatch Watch App" folder in "zhr" target */,
-			);
 			path = "zhrWatch Watch App";
 			sourceTree = "<group>";
 		};
@@ -121,7 +103,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				6B00FF3B2D1BFB58008A689F /* Exceptions for "zhr" folder in "zhr" target */,
-				6B74DA1E2D24A2DE001EBB2F /* Exceptions for "zhr" folder in "zhrWatch Watch App" target */,
 			);
 			path = zhr;
 			sourceTree = "<group>";

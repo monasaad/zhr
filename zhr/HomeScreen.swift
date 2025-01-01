@@ -10,20 +10,6 @@ struct HomeScreen: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Button(action: {
-                    locationManager.checkReachability()
-                }) {
-                    Text("Check Reachability")
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                Text("Reachable: \(locationManager.isReachable ? "Yes" : "No")")
-                    .padding()
-            }
-
             #if os(iOS)
             Map(coordinateRegion: $region, showsUserLocation: true)
                 .ignoresSafeArea()
@@ -51,6 +37,32 @@ struct HomeScreen: View {
                     }
                 }
             #endif
+
+            Spacer()
+            
+            Button(action: {
+                if let location = locationManager.lastKnownLocation {
+                    updateRegion(for: location)
+                }
+            }) {
+                ZStack {
+                    // Background rectangle
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color(red: 106 / 255, green: 89 / 255, blue: 172 / 255)) // Hex #6A59AC
+                        .frame(width: 331.33, height: 59)
+
+                    // Add the SF Symbol as an icon
+                    HStack {
+                        Image(systemName: "location.fill")
+                            .font(.system(size: 20))
+                            .foregroundColor(.white)
+                        Text("Current Location")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                    }
+                }
+            }
+            .padding(.bottom, 16)
         }
     }
 
@@ -59,11 +71,9 @@ struct HomeScreen: View {
     }
 }
 
-
-
-
-
-
+#Preview {
+    HomeScreen()
+}
 //class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 //    private let manager = CLLocationManager()
 //    @Published var lastKnownLocation: CLLocation? = nil

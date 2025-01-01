@@ -105,9 +105,6 @@
         }
       }
     },
-    "Check Reachability" : {
-
-    },
     "Create" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -120,7 +117,6 @@
       }
     },
     "Current Location" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -485,9 +481,6 @@
       }
     },
     "Press and Hold to Record" : {
-
-    },
-    "Reachable: %@" : {
 
     },
     "Read a short story" : {

@@ -26,7 +26,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate, WC
         guard let location = locations.last else { return }
         DispatchQueue.main.async {
             self.lastKnownLocation = location
-            print("Location updated: \(location.coordinate.latitude), \(location.coordinate.longitude)")
         }
     }
 
@@ -36,14 +35,12 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate, WC
             let session = WCSession.default
             session.delegate = self
             session.activate()
-            print("WCSession activated successfully on iPhone.")
         }
     }
 
     func checkReachability() {
         DispatchQueue.main.async {
             self.isReachable = WCSession.default.isReachable
-            print("Session is reachable: \(self.isReachable ? "Yes" : "No")")
         }
     }
 
@@ -56,23 +53,24 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate, WC
         }
     }
 
-    func sessionDidBecomeInactive(_ session: WCSession) {
-        print("WCSession became inactive.")
-    }
-
-    func sessionDidDeactivate(_ session: WCSession) {
-        print("WCSession deactivated.")
-        // Reactivate the session after deactivation
-        session.activate()
-    }
-
     func sessionReachabilityDidChange(_ session: WCSession) {
         DispatchQueue.main.async {
             self.isReachable = session.isReachable
-            print("Reachability changed: \(self.isReachable ? "Reachable" : "Not Reachable")")
         }
     }
+
+    // MARK: - Placeholder Methods for Protocol Conformance
+    // These are required by the protocol but can remain empty if not needed
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        // Placeholder for sessionDidBecomeInactive
+    }
+
+    func sessionDidDeactivate(_ session: WCSession) {
+        // Placeholder for sessionDidDeactivate
+    }
 }
+
+
 
 
 
