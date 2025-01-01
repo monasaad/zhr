@@ -24,6 +24,7 @@ struct HomeScreen: View {
                     .padding()
             }
 
+            #if os(iOS)
             Map(coordinateRegion: $region, showsUserLocation: true)
                 .ignoresSafeArea()
                 .onAppear {
@@ -36,6 +37,20 @@ struct HomeScreen: View {
                         updateRegion(for: location)
                     }
                 }
+            #elseif os(watchOS)
+            Map(coordinateRegion: $region, showsUserLocation: true)
+                .edgesIgnoringSafeArea(.all)
+                .onAppear {
+                    if let location = locationManager.lastKnownLocation {
+                        updateRegion(for: location)
+                    }
+                }
+                .onChange(of: locationManager.lastKnownLocation) { newLocation in
+                    if let location = newLocation {
+                        updateRegion(for: location)
+                    }
+                }
+            #endif
         }
     }
 
@@ -43,6 +58,12 @@ struct HomeScreen: View {
         region.center = location.coordinate
     }
 }
+
+
+
+
+
+
 //class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 //    private let manager = CLLocationManager()
 //    @Published var lastKnownLocation: CLLocation? = nil

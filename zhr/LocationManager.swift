@@ -1,11 +1,12 @@
+import Foundation
 import CoreLocation
 import WatchConnectivity
 import SwiftUI
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate, WCSessionDelegate {
     private let locationManager = CLLocationManager()
-    @Published var lastKnownLocation: CLLocation? = nil // Tracks the last received location
-    @Published var isReachable: Bool = false // Tracks whether the iPhone can reach the Watch
+    @Published var lastKnownLocation: CLLocation? = nil
+    @Published var isReachable: Bool = false
 
     override init() {
         super.init()
@@ -25,6 +26,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate, WC
         guard let location = locations.last else { return }
         DispatchQueue.main.async {
             self.lastKnownLocation = location
+            print("Location updated: \(location.coordinate.latitude), \(location.coordinate.longitude)")
         }
     }
 
@@ -34,42 +36,43 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate, WC
             let session = WCSession.default
             session.delegate = self
             session.activate()
-            print("WCSession activated successfully on iPhone")
+            print("WCSession activated successfully on iPhone.")
         }
     }
 
-    // Method to check Watch reachability
     func checkReachability() {
         DispatchQueue.main.async {
             self.isReachable = WCSession.default.isReachable
+            print("Session is reachable: \(self.isReachable ? "Yes" : "No")")
         }
     }
 
     // MARK: - WCSessionDelegate Methods
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         if let error = error {
-            print("WCSession activation failed on iPhone: \(error.localizedDescription)")
+            print("WCSession activation failed: \(error.localizedDescription)")
         } else {
-            print("WCSession activated successfully on iPhone")
+            print("WCSession activated successfully. Activation state: \(activationState.rawValue)")
         }
     }
 
     func sessionDidBecomeInactive(_ session: WCSession) {
-        print("WCSession became inactive")
+        print("WCSession became inactive.")
     }
 
     func sessionDidDeactivate(_ session: WCSession) {
-        WCSession.default.activate() // Re-activate the session
+        print("WCSession deactivated.")
+        // Reactivate the session after deactivation
+        session.activate()
     }
 
     func sessionReachabilityDidChange(_ session: WCSession) {
         DispatchQueue.main.async {
             self.isReachable = session.isReachable
-            print("Session reachability changed: \(self.isReachable ? "Reachable" : "Not Reachable")")
+            print("Reachability changed: \(self.isReachable ? "Reachable" : "Not Reachable")")
         }
     }
 }
-
 
 
 

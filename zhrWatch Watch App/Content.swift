@@ -1,7 +1,7 @@
 import SwiftUI
 import MapKit
 
-struct ContentView1: View {
+struct Content: View {
     @StateObject private var locationManager = WatchLocationManager()
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 0, longitude: 0),

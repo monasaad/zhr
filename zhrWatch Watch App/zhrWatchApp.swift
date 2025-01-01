@@ -22,7 +22,7 @@ struct zhrWatchApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView1() // Main content view
+            Content() // Main content view
         }
     }
 }

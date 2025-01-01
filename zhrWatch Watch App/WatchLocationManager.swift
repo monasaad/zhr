@@ -1,26 +1,35 @@
 import CoreLocation
 import WatchConnectivity
-import WatchKit
 import SwiftUI
 
-class WatchLocationManager: NSObject, ObservableObject, CLLocationManagerDelegate, WCSessionDelegate, WKExtendedRuntimeSessionDelegate {
+#if os(watchOS)
+import WatchKit
+#endif
+
+class WatchLocationManager: NSObject, ObservableObject, CLLocationManagerDelegate, WCSessionDelegate {
     
     private let locationManager = CLLocationManager()
     @Published var currentLocation: CLLocation? = nil
+
+    #if os(watchOS)
     private var runtimeSession: WKExtendedRuntimeSession?
+    #endif
 
     override init() {
         super.init()
         setupLocationManager()
         setupWatchConnectivity()
+        
+        #if os(watchOS)
         startExtendedRuntimeSession()
+        #endif
     }
 
     // MARK: - Location Updates
     private func setupLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization() // Request location permissions
+        locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
     }
 
@@ -57,33 +66,9 @@ class WatchLocationManager: NSObject, ObservableObject, CLLocationManagerDelegat
         print("Sent location to iPhone: \(message)")
     }
 
-    // MARK: - Background Task Management
-    func startBackgroundTask() {
-        WKExtension.shared().scheduleBackgroundRefresh(
-            withPreferredDate: Date(timeIntervalSinceNow: 5 * 60),
-            userInfo: nil
-        ) { error in
-            if let error = error {
-                print("Error scheduling background task: \(error.localizedDescription)")
-            } else {
-                print("Background task scheduled successfully.")
-            }
-        }
-    }
-
-    func handleBackgroundTasks(_ tasks: Set<WKRefreshBackgroundTask>) {
-        for task in tasks {
-            if let connectivityTask = task as? WKWatchConnectivityRefreshBackgroundTask {
-                print("Handling Watch Connectivity Background Task")
-                connectivityTask.setTaskCompletedWithSnapshot(false)
-            } else {
-                task.setTaskCompletedWithSnapshot(false)
-            }
-        }
-    }
-
     // MARK: - Extended Runtime Session
-    func startExtendedRuntimeSession() {
+    #if os(watchOS)
+    private func startExtendedRuntimeSession() {
         runtimeSession = WKExtendedRuntimeSession()
         runtimeSession?.delegate = self
         runtimeSession?.start()
@@ -101,6 +86,7 @@ class WatchLocationManager: NSObject, ObservableObject, CLLocationManagerDelegat
     func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
         print("Extended runtime session will expire soon.")
     }
+    #endif
 
     // MARK: - WCSessionDelegate
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
@@ -109,6 +95,15 @@ class WatchLocationManager: NSObject, ObservableObject, CLLocationManagerDelegat
         } else {
             print("WCSession activated successfully on Watch")
         }
+    }
+
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        print("WCSession became inactive")
+    }
+
+    func sessionDidDeactivate(_ session: WCSession) {
+        WCSession.default.activate() // Re-activate the session
+        print("WCSession reactivated after deactivation")
     }
 
     func sessionReachabilityDidChange(_ session: WCSession) {
