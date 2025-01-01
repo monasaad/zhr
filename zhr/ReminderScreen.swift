@@ -4,7 +4,6 @@
 //
 //  Created by Mona on 12/12/2024.
 //
-
 import SwiftUI
 
 struct ReminderScreen: View {
@@ -79,34 +78,16 @@ struct ReminderScreen: View {
 
                 // عرض التذكيرات الخاصة باليوم المحدد
                 List {
-                    if let todaysReminders = viewModel.reminders[viewModel.clearTime(for: viewModel.selectedDate)] {
+                    let selectedDate = viewModel.clearTime(for: viewModel.selectedDate)
+                    if let todaysReminders = viewModel.reminders[selectedDate] {
                         ForEach(todaysReminders) { reminder in
-                            VStack(alignment: .leading) {
-                                Text(reminder.title)
-                                    .font(.headline)
-                                    .foregroundColor(.primary)
-
-                                Text("\(reminder.location)")
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
-
-                                Text("\(viewModel.formattedTime(reminder.date))")
-                                    .font(.footnote)
-                                    .padding(.leading, 230)
-                                    .foregroundColor(Color("PurpleDark"))
-                            }
-                            .padding() // إضافة مساحة داخلية لكل عنصر
-                            .background(Color("PurpleLight")) // لون خلفية العنصر
-                            .cornerRadius(15) // لتنعيم الحواف
-                            .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 2) // إضافة ظل خفيف
-                            .listRowBackground(Color.clear)
+                            reminderView(for: reminder)
                         }
+                        .onDelete(perform: viewModel.deleteReminder)
                     } else {
                         Text("No reminders for this day")
                             .foregroundColor(.gray)
                     }
-                }
-
                 }
                 .background(Color.clear)
             }
@@ -118,9 +99,35 @@ struct ReminderScreen: View {
         }
     }
 
+    private func reminderView(for reminder: Reminder) -> some View {
+        VStack(alignment: .leading) {
+            Text(reminder.title)
+                .font(.headline)
+                .foregroundColor(.primary)
+
+            Text("\(reminder.location)")
+                .font(.subheadline)
+                .foregroundColor(.gray)
+
+            Text("\(viewModel.formattedTime(reminder.date))")
+                .font(.footnote)
+                .padding(.leading, 230)
+                .foregroundColor(Color("PurpleDark"))
+        }
+        .padding()
+        .background(Color("PurpleLight"))
+        .cornerRadius(15)
+        .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 2)
+        .listRowBackground(Color.clear)
+    }
+}
 
 struct ReminderScreen_Previews: PreviewProvider {
     static var previews: some View {
         ReminderScreen()
     }
+}
+
+#Preview {
+    ReminderScreen()
 }

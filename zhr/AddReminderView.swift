@@ -4,8 +4,6 @@
 //
 //  Created by Rahaf ALDossari on 01/07/1446 AH.
 //
-
-
 import SwiftUI
 
 struct AddReminderView: View {
@@ -47,7 +45,7 @@ struct AddReminderView: View {
             .navigationBarTitle("New Reminder", displayMode: .inline)
         }
     }
-    
+
     func combine(date: Date, time: Date) -> Date {
         let calendar = Calendar.current
         let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
@@ -62,4 +60,3 @@ struct AddReminderView: View {
         )) ?? date
     }
 }
-

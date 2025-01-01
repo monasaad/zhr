@@ -5,21 +5,12 @@
 //  Created by Huda Almadi on 23/12/2024.
 //
 import Foundation
-import SwiftData
-// تعريف هيكل Reminder هنا
-struct Reminder: Identifiable, Codable {
-    var id = UUID()
-    let title: String
-    let location: String
-    let date: Date
-}
+import UserNotifications
 
 class ReminderScreenViewModel: ObservableObject {
     @Published var selectedMonth = Calendar.current.component(.month, from: Date())
     @Published var selectedDate = Date() // اليوم المختار
     @Published var reminders: [Date: [Reminder]] = [:] // تخزين التذكيرات حسب اليوم
-
-    let months = Calendar.current.monthSymbols
 
     init() {
         loadReminders() // تحميل التذكيرات عند بدء تشغيل ViewModel
@@ -42,6 +33,13 @@ class ReminderScreenViewModel: ObservableObject {
         }
 
         saveReminders() // حفظ التذكيرات بعد إضافتها
+        scheduleNotification(for: newReminder)  // إضافة الإشعار بعد التذكير
+    }
+
+    func deleteReminder(at offsets: IndexSet) {
+        let keyDate = clearTime(for: selectedDate)
+        reminders[keyDate]?.remove(atOffsets: offsets)
+        saveReminders()
     }
 
     func clearTime(for date: Date) -> Date {
@@ -94,6 +92,30 @@ class ReminderScreenViewModel: ObservableObject {
             let decoder = JSONDecoder()
             if let loadedReminders = try? decoder.decode([Date: [Reminder]].self, from: savedReminders) {
                 reminders = loadedReminders
+            }
+        }
+    }
+
+    // جدولة الإشعار
+    func scheduleNotification(for reminder: Reminder) {
+        let content = UNMutableNotificationContent()
+        content.title = reminder.title
+        content.body = "Reminder for \(reminder.location)"
+        content.sound = .default
+
+        // تحديد وقت الإشعار
+        let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: reminder.date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+
+        // إنشاء الطلب للإشعار
+        let request = UNNotificationRequest(identifier: reminder.id.uuidString, content: content, trigger: trigger)
+
+        // إضافة الإشعار
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error adding notification: \(error.localizedDescription)")
+            } else {
+                print("Notification scheduled for \(reminder.title) at \(reminder.date)")
             }
         }
     }

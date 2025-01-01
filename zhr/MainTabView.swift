@@ -4,8 +4,8 @@
 //
 //  Created by Mona on 16/12/2024.
 //
-
 import SwiftUI
+import UserNotifications
 
 struct MainTabView: View {
     var body: some View {
@@ -33,7 +33,21 @@ struct MainTabView: View {
                     Image(systemName: "dice.fill")
                     Text("Activity")
                 }
-        }.navigationBarBackButtonHidden(true)
+        }
+        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            requestNotificationPermission()
+        }
+    }
+
+    func requestNotificationPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            if granted {
+                print("Permission granted")
+            } else {
+                print("Permission denied or not determined")
+            }
+        }
     }
 }
 
